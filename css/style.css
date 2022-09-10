@@ -171,8 +171,8 @@ a {
 }
 
 canvas {
-  height: 900px;
-  width: 530px;
+  height: 87%;
+  width: 80%;
   background-color: var(--dark);
   z-index: 1001;
   position: absolute;
@@ -230,4 +230,3 @@ canvas {
 .oculto {
   display: none !important; 
 }
-
