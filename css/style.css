@@ -1,1 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+
+:root {
+  --dark: #1F2937;
+  --darker: #111827;
+  --light: #EEE;
+  --pink: #EC4899;
+  --purple: #8B5Cf6;
+  --red: #D2335C;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background: var(--darker);
+  color: var(--light);
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  background: var(--dark);
+  width: 100%;
+  height: 10%;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+select {
+  font-family: 'Outfit', Sans-Serif;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--light);
+  border: 2px solid var(--purple);
+  width: 60%;
+  background: none;
+  min-height: 25px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  left: calc(50% - 60px);
+  transform: translateX(-50%);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: var(--dark);
+  height: 10%;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#btnScreen {
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4em;
+  color: var(--purple);
+  border-radius: 50%;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, .7));
+  transition: .2s ease-out;
+}
+
+#btnScreen:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#view-galery {
+  height: 80px;
+  width: 80px;
+  font-size: 3em;
+  color: var(--purple);
+  border-radius: 50%;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, .7));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-out;
+}
+
+#view-galery:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ativado {
+  border: 3px solid var(--pink) !important;
+  color: var(--pink) !important;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  font-size: 3em;
+  border-radius: 50%;
+  border: 3px solid white;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, .7));
+  cursor: pointer;
+  transition: .3s ease-out;
+}
+
+.btn:hover {
+  height: 90px;
+  width: 90px;
+  background-image: radial-gradient(var(--red), var(--pink));
+  border: none;
+}
+
+#flip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  font-size: 3em;
+  color: var(--purple);
+  border-radius: 50%;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, .7));
+  cursor: pointer;
+  transition: .3s ease-out;
+}
+
+#flip:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#galery {
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  backdrop-filter: blur(5px);
+}
+
+canvas {
+  height: 900px;
+  width: 530px;
+  background-color: var(--dark);
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: .3s;
+}
+
+.galery-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+#voltar {
+  background: var(--dark);
+  font-size: 2.2em;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 50%;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: .2s;
+}
+
+#voltar:hover {
+  background: var(--darker);
+}
+
+#download {
+  background: var(--dark);
+  font-size: 2.2em;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 50%;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: .2s;
+}
+
+#download:hover {
+  background: var(--darker);
+}
+
+.oculto {
+  display: none !important; 
+}
 
