@@ -166,7 +166,7 @@ a {
 }
 
 canvas {
-  height: 87%;
+  height: 85%;
   width: 80%;
   background-color: var(--dark);
   z-index: 1001;
