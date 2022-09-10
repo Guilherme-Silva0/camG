@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Camera</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+   <div class="oculto" id="galery">
+     <canvas height="1920" width="1080" id="canvas">
+       Seu navegador não suporta
+     </canvas>
+     <div class="galery-menu">
+      <span id="voltar"><i class='bx bx-arrow-back'></i> </span>
+      <a id="download"><i class='bx bxs-download'></i></a>
+     </div>
+   </div>
+  <header>
+    <div id="btnScreen">
+      <i id="iconScreen" class='bx bx-fullscreen'></i>
+    </div>
+    <select id="filtros">
+      <option selected value="1">Sem filtros de cores</option>
+      <option value="2">Filtro de cor 1</option>
+      <option value="3">Filtro de cor 2</option>
+      <option value="4">Filtro de cor 3</option>
+    </select>
+  </header>
+  <main>
+    <video id="video" autoplay></video>
+  </main>
+  <footer>
+    <div id="view-galery" >
+      <i class="bx bx-photo-album"></i>
+    </div>
+    <div class="btn" onclick="capturar()">
+      <i class='bx bx-camera'></i>
+    </div>
+    <div id="flip">
+      <i class='bx bx-rotate-left'></i>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
