@@ -8,37 +8,41 @@ var video = document.getElementById("video"),
   inputFilter = document.querySelector("#filtros"),
   btnScreen = document.querySelector("#btnScreen"),
   btnFlip = document.querySelector("#flip"),
+  ctx = canvas.getContext('2d'),
   filter = 'none',
   videoStream,
-  cameraFront = false;
+  cameraFront = true;
 
 contains = {
   video: {
     height: {
-      min: 720,
-      ideal: 1080,
-      max: 1440
+      ideal: 1080
     },
     width: {
-      min: 1280,
-      ideal: 1920,
-      max: 2560,
+      ideal: 1440
     },
-    frameRate: 120,
+    frameRate: 60,
   }
 }
 
-
 async function startCamera() {
   stopVideo();
-  contains.video.facingMode = cameraFront ? "user" : "environment"
+  contains.video.facingMode = cameraFront ? "user" : "environment";
+  video.style.transform = cameraFront ? "scaleX(-1)" : "scaleX(1)";
+  
+  if (cameraFront == true) {
+    ctx.scale(-1, 1);
+    ctx.translate(-1080, 0);
+  } else {
+    ctx.scale(-1, 1);
+    ctx.translate(-1080, 0);
+  }
   
   try {
-    videoStream = await navigator.mediaDevices.getUserMedia(contains)
+    videoStream = await navigator.mediaDevices.getUserMedia(contains);
     video.srcObject = videoStream;
     video.play();
   } catch (error) {
-    console.log(error)
     if (error.name == "NotAllowedError") {
       alert("Desculpe, mas para usar a nossa aplicação web é necessário que permita o uso da câmera e um navegador que suporte o uso da mesma... :(")
     }
@@ -111,15 +115,11 @@ btnScreen.onclick = () => {
 
 
 btn.onclick = () => {
-  let ctx = canvas.getContext('2d');
   ctx.filter = filter;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  ctx.font = "35px arial";
-  ctx.fillStyle = "#FFFFFF40";
-  ctx.fillText("CamG", 50, 1850);
   viewGalery.classList.add("ativado");
   let random = Math.floor(Date.now() * Math.random()).toString(36);
-  btnDownload.download = `${random}.png`;
+  btnDownload.download = `${random}.jpeg`;
   btnDownload.href = canvas.toDataURL();
 }
 
@@ -129,8 +129,14 @@ viewGalery.onclick = () => {
 }
 
 btnFlip.onclick = () => {
-  cameraFront = !cameraFront;
-  startCamera()
+  
+ if (cameraFront == false) {
+    cameraFront = true;
+  } else {
+    cameraFront = false;
+  }
+
+  startCamera();
 }
 
 function stopVideo() {
@@ -141,8 +147,4 @@ function stopVideo() {
   }
 }
 
-voltar.onclick = () => {
-  setTimeout(() => {
-    galery.classList.add("oculto");
-  }, 200);
-}
+voltar.onclick = () => {  galery.classList.add("oculto") }
