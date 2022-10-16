@@ -170,8 +170,8 @@ a {
 }
 
 canvas {
-  height: 85%;
-  width: 80%;
+  height: 720px;
+  width: 540px;
   background-color: var(--dark);
   z-index: 1001;
   position: absolute;
@@ -230,4 +230,18 @@ canvas {
 
 .oculto {
   display: none !important; 
+}
+
+@media screen and (max-width: 600px) {
+  canvas {
+    height: 480px;
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  canvas {
+    height: 430px;
+    width: 310px;
+  }
 }
